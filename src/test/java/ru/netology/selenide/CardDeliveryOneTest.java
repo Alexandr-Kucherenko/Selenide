@@ -3,14 +3,14 @@ package ru.netology.selenide;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.locks.Condition;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-
 
 
 public class CardDeliveryOneTest {
@@ -29,10 +29,9 @@ public class CardDeliveryOneTest {
         $("[data-test-id='phone'] input").setValue("+79155001162");
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $(".notification__content")
-                .shouldBe(Condition.visible, Duration.ofSeconds(15))
-                .shouldHave(Condition.exactText("Встреча успешно забронирована на" + currentDate));
-
+         $(".notification__content")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(exactText("Встреча успешно забронирована на" + currentDate));
 
 
     }
