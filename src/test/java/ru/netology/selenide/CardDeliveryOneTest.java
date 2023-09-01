@@ -19,9 +19,9 @@ public class CardDeliveryOneTest {
     }
     @Test
     public void shouldBESuccessFullyComplited(){
-        Configuration.timeout=15;
+
         open("http://localhost:9999");
-        $("[data-test-in='city'] input").setValue("Москва");
+        $("[data-test-id=city] input").setValue("Москва");
         String currentDate = generateDate(4,"dd.MM.yyyy");
         $("[data-test-id='date'] input").sendKeys(Keys.SHIFT,Keys.HOME,Keys.DELETE);
         $("[data-test-id='date'] input").setValue(currentDate);
